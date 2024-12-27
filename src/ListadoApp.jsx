@@ -23,11 +23,17 @@ export const ListadoApp = () => {
     ]
     const [arreglo, setArreglo] = useState(listado)
     console.log(arreglo)
+
+    const onAddTask = (val) => {
+        console.log(val)
+    }
+    
     return (
         <> 
-        <Tarea></Tarea>
+        <Tarea agregarTarea={setArreglo}></Tarea>
         <div>Listado temas del curso</div>
          <ol>
+
            {arreglo.map(item => <Items key={item.nombre} nombre={item.nombre} visto={item.visto}></Items>)}
          </ol>
 
