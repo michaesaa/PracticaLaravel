@@ -25,12 +25,12 @@ export const ListadoApp = () => {
     console.log(arreglo)
     return (
         <> 
+        <Tarea></Tarea>
         <div>Listado temas del curso</div>
          <ol>
            {arreglo.map(item => <Items key={item.nombre} nombre={item.nombre} visto={item.visto}></Items>)}
          </ol>
 
-        <Tarea></Tarea>
          <button onClick={() => addTsk()}>Ingresar tarea</button>
         </>
       )
