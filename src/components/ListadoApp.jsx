@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Tarea } from "./components/Tarea"
+import { Tarea } from "./Tarea"
 const Items = ({nombre, visto}) => {
     return (
         <li>{nombre} 
