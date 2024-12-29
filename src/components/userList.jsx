@@ -1,23 +1,7 @@
 import { useEffect, useState } from "react"
+import { useFetchUsers } from "../hooks/useFetchUsers"
 export const UserList = ({ endPoint }) => {
-    const [data, setData] = useState([])
-
-
-
-    const fetchdata = async() => {
-        try{
-            const response = await fetch(`https://jsonplaceholder.typicode.com/${endPoint}`)
-            const data = await response.json()
-            console.log(data)
-            setData(data)    
-        }catch(error){
-            console.error(error)
-        }   
- 
-    }
-    useEffect(() => {
-        fetchdata()
-    }, [endPoint])
+    const { data, isLoading } = useFetchUsers(endPoint)
 
     return (
        <>
