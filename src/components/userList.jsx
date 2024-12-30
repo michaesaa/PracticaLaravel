@@ -6,8 +6,12 @@ export const UserList = ({ endPoint }) => {
     return (
        <>
           <ul>
-              {endPoint == 'users' ? data.map(item => <li key={item.id}>{item.name}</li>)
-                                   : data.map(item => <li key={item.id}>{item.body}</li>)}
+              {isLoading 
+              ? <p>cargando...</p> 
+              : endPoint == 'users' 
+              ? data.map(item => <li key={item.id}>{item.name}</li>)
+              : data.map(item => <li key={item.id}>{item.body}</li>)
+              }
 
           </ul>  
         </>
