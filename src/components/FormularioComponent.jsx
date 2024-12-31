@@ -1,35 +1,28 @@
+import { useForm } from "../hooks/useForm"
 import { useState } from "react"
 export const FormularioComponent = () => {
-    const [formState, setFormState] = useState({
-        userName: 'michael saa',
-        email: 'michaelsaa@122.com',
-        password: '123456'
-        
-    })
-    const { userName, email, password } = formState
-    const onInputChange = ({target}) => {
-        // console.log(target.name)
-        // console.log(target.value)
-        const { name, value } = target
-
-        setFormState({
-            ...formState,
-            [name]: value
-        })
+    const initialForm ={
+        userName: '',
+        email: '',
+        password: ''
     }
 
-    const onSubmit = (event) =>{
+    const { formState, userName, email, password, onInputChange } = useForm(initialForm)
+ 
+     
+
+
+    const onSubmit = (event) => {
         event.preventDefault()
         console.log(formState)
     }
-
 
     return (
         <form onSubmit={onSubmit} className="row g-3">
             <div className="col-auto">
                 <label htmlFor="UserName" className="visually-hidden">User Name</label>
                 <input
-                    type="text" 
+                    type="text"
                     className="form-control"
                     name="UserName"
                     placeholder="userName"
@@ -61,9 +54,9 @@ export const FormularioComponent = () => {
             </div>
             <div className="col-auto">
                 <button
-                type="submit"
-                className="btn btn-primary mb-3">
-                send
+                    type="submit"
+                    className="btn btn-primary mb-3">
+                    send
                 </button>
             </div>
         </form>
